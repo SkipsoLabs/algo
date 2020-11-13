@@ -65,7 +65,7 @@ publicIpFromMetadata() {
     ENDPOINT="$(curl -H Metadata:true 'http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text')"
   fi
 
-  if echo "${ENDPOINT}" | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"; then
+  if echo "${ENDPOINT}"; then
     export ENDPOINT=$ENDPOINT
     echo "Using ${ENDPOINT} as the endpoint"
   else
